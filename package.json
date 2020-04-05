@@ -21,6 +21,7 @@
     "ant-design-vue": "^1.1.6",
     "chart.js": "^2.7.3",
     "crypto-js": "^3.1.9-1",
+    "express": "^4.17.1",
     "jwt-decode": "^2.2.0",
     "remove": "^0.1.5",
     "reqwest": "^2.0.5",
