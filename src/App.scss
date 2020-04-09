@@ -10,7 +10,7 @@
 }
 
 #app {
-    // background-image: url("/static/images/backgroundLogin.jpg");
+    background-image: url("/static/images/backgroundLogin.jpg");
     display: flex;
     &-left {
         background-color: green;
@@ -25,7 +25,7 @@
         min-width: 262px;
     }
     &-center {
-        background-color: green;
+        // background-color: green;
         margin: 1px;
         width: 60%;
         min-width: 750px;
