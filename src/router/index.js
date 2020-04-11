@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import userService from '@/utils/userServices'
-import SignUp from '@/components/login/Signup'
+import Register from '@/components/login/register'
 import Login from '@/components/login/Login'
-import ResetPassword from '@/components/login/ResetPassword'
+import ForgotPassword from '@/components/login/ForgotPassword'
 import HomeScreen from '@/screens/HomeScreen'
 
 Vue.use(Router)
@@ -18,8 +18,8 @@ const router = new Router({
     },
     {
       path: '/register',
-      name: 'SignUp',
-      component: SignUp
+      name: 'Register',
+      component: Register
     },
     {
       path: '/login',
@@ -28,8 +28,8 @@ const router = new Router({
     },
     {
       path: '/reset-password',
-      name: 'ResetPassword',
-      component: ResetPassword
+      name: 'ForgotPassword',
+      component: ForgotPassword
     }
   ]
 })
