@@ -1,13 +1,20 @@
 <template>
-  <div class="home-page">
-    <h1>HomePage</h1>
-  </div>
+  <HomeComponent :socket="socket" />
 </template>
+
 <script>
+
+import HomeComponent from '../components/contents/home/Home'
+
 export default {
+  name: 'HomeScreen',
   data () {
     return {
     }
+  },
+  props: ['socket'],
+  components: {
+    HomeComponent
   }
 }
 </script>
