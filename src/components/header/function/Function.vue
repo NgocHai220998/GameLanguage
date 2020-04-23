@@ -4,6 +4,7 @@
     <GotoLearn />
     <Position />
     <Recruit />
+    <Courses />
   </section>
 </template>
 
@@ -13,6 +14,7 @@ import Rank from './Rank'
 import GotoLearn from './GotoLearn'
 import Position from './Position'
 import Recruit from './Recruit'
+import Courses from './Courses'
 
 export default {
   name: 'FunctionHeader',
@@ -24,7 +26,8 @@ export default {
     Rank,
     GotoLearn,
     Position,
-    Recruit
+    Recruit,
+    Courses
   }
 }
 </script>
