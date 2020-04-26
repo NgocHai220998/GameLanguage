@@ -12,6 +12,8 @@ import RecruitScreen from '@/screens/RecruitScreen'
 import GotoLearnScreen from '@/screens/GotoLearnScreen'
 import CoursesScreen from '@/screens/CoursesScreen'
 import CourseScreen from '@/screens/CourseScreen'
+import RoomsScreen from '@/screens/RoomsScreen'
+import RoomScreen from '@/screens/RoomScreen'
 
 Vue.use(Router)
 
@@ -79,6 +81,18 @@ const router = new Router({
       path: '/courses/:name',
       name: 'CourseScreen',
       component: CourseScreen,
+      meta: { auth: true }
+    },
+    {
+      path: '/rooms',
+      name: 'RoomsScreen',
+      component: RoomsScreen,
+      meta: { auth: true }
+    },
+    {
+      path: '/rooms/:id/:email/:emailReverse',
+      name: 'RoomScreen',
+      component: RoomScreen,
       meta: { auth: true }
     }
   ]

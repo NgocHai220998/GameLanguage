@@ -15,9 +15,28 @@
     <div class="right">
       <div class="group-button">
         <div>
-          <a-button type="primary" class="btn-plus background">Học ngay</a-button>
+          <a-button @click="showDrawer" type="primary" class="btn-plus background">Luyện tập</a-button>
         </div>
       </div>
+      <a-drawer
+      title="Luyện tập"
+      placement="left"
+      :width="550"
+      :closable="false"
+      @close="onClose"
+      :visible="visible"
+      >
+        <div style="text-align: center;">
+          <h1>{{ currentWord.explain }}</h1>
+          <a-input-search
+            v-model="inputText"
+            placeholder="Nhập đáp án"
+            @search="onEnter"
+            enterButton="Trả lời"
+            size="large"
+          />
+        </div>
+      </a-drawer>
     </div>
   </section>
 </template>
@@ -28,7 +47,12 @@ export default {
   data () {
     return {
       user: null,
-      windowHeight: null
+      windowHeight: null,
+      visible: false,
+      currentWord: null,
+      listWord: null,
+      inputText: '',
+      index: 0
     }
   },
   props: ['socket', 'lesson'],
@@ -44,6 +68,26 @@ export default {
         vocabulary: word.vocabulary,
         explain: word.explain
       })
+    },
+    onClose () {
+      this.visible = false
+    },
+    showDrawer () {
+      this.visible = true
+    },
+    onEnter () {
+      if (this.inputText === this.currentWord.vocabulary) {
+        this.listWord.splice(this.index, 1)
+        if (this.listWord.length === 0) {
+          this.$message.success('Đã ôn tập xong')
+        } else {
+          this.index = Math.floor(Math.random() * this.listWord.length)
+          this.currentWord = this.listWord[this.index]
+          this.inputText = ''
+        }
+      } else {
+        this.$message.error('Sai rồi')
+      }
     }
   },
   computed: {
@@ -54,6 +98,9 @@ export default {
   beforeMount () {
     this.user = JSON.parse(localStorage.getItem('user'))
     this.windowHeight = window.innerHeight
+    this.listWord = this.lesson.words
+    this.currentWord = this.listWord[0]
+    this.index = 0
     this.connectSocket()
   }
 }
