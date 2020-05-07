@@ -18,12 +18,11 @@
               'email',
               {
                 rules: [
-                  { required: true, message: $t('login.required-email') },
-                  { type: 'email', message: $t('login.invalid-email') }
+                  { required: true, message: $t('login.required-email') }
                 ]
               }
             ]"
-            :placeholder="$t('login.placeholder-email')"
+            :placeholder="$t('login.placeholder-email') + ' / userName'"
           />
         </a-form-item>
         <a-form-item

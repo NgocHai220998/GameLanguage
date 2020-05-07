@@ -18,12 +18,11 @@
               'email',
               {
                 rules: [
-                  { required: true, message: $t('login.required-email') },
-                  { type: 'email', message: $t('login.invalid-email') }
+                  { required: true, message: $t('login.required-email') }
                 ]
               }
             ]"
-            :placeholder="$t('login.placeholder-email')"
+            :placeholder="$t('login.placeholder-email') + ' / userName'"
           />
         </a-form-item>
         <a-form-item
@@ -147,9 +146,21 @@ export default {
           }).then((response) => response.json())
             .then((res) => {
               hideLoading()
-              this.createMissions(res.data.user.email)
-              this.$message.success('Đăng ký thành công!')
-              this.$router.push({ name: 'Login' })
+              this.loading = false
+              if (res.code === 200) {
+                this.createMissions(res.data.user.email)
+                this.$message.success('Đăng ký thành công!')
+                this.$router.push({ name: 'Login' })
+              } else if (res.code === 401) {
+                const message = res.data.message ? res.data.message : 'Email is existed!'
+                this.$message.warning(message)
+              } else if (res.code === 451) {
+                const message = res.data.message ? res.data.message : 'Send confirm message to register fail!'
+                this.$message.warning(message)
+              } else {
+                const message = res.data.message ? res.data.message : 'Something is not right!'
+                this.$message.error(message)
+              }
               // if (res.code === 200) {
               //   fetch(API.SEND_EMAIL_REGISTER, {
               //     method: 'post',
