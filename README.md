@@ -70,6 +70,7 @@ Tất cả các tính năng bạn sử dụng trên hệ thống này như: Hoà
 ベトナム語：Người chơi sẽ sắp xếp các nhân vật tùy theo xuy nghĩ của mình: Có thể là tanker sẽ đứng trước hoặc sau tùy. Xếp trận hình là yếu tố quan trọng để tạo nên một trận thắng.
 ![](https://images.viblo.asia/750217d3-62de-430a-8764-50ca356eb16b.png)
 
+## URL slide: https://1drv.ms/p/s!Am9em21TlnmnaYQQ7NOUny4RK20?e=gdreXp
 # その他の特徴
 * 皆さんが体験できる他の多くの興味深い機能があります：https://game-language.herokuapp.com/
 * FullOption Demo Account: 
